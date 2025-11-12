@@ -106,6 +106,46 @@ if (typeof document !== 'undefined') {
 		}
 		renderLibrary();
 		console.log('myLibrary:', myLibrary);
+
+		// New Book dialog/form wiring
+		const newBookBtn = document.getElementById('new-book-btn');
+		const dialog = document.getElementById('new-book-dialog');
+		const form = document.getElementById('new-book-form');
+		const cancelBtn = document.getElementById('cancel-btn');
+
+		if (newBookBtn && dialog && form) {
+			newBookBtn.addEventListener('click', () => {
+				if (typeof dialog.showModal === 'function') dialog.showModal();
+				else dialog.setAttribute('open', '');
+			});
+
+			cancelBtn.addEventListener('click', () => {
+				if (typeof dialog.close === 'function') dialog.close();
+				else dialog.removeAttribute('open');
+				form.reset();
+			});
+
+			form.addEventListener('submit', (ev) => {
+				ev.preventDefault();
+				const data = new FormData(form);
+				const title = data.get('title')?.toString().trim();
+				const author = data.get('author')?.toString().trim();
+				const pages = Number(data.get('pages')) || 0;
+				const read = data.get('read') === 'on' || data.get('read') === 'true';
+
+				if (!title || !author) {
+					// minimal validation
+					alert('Please provide title and author');
+					return;
+				}
+
+				addBookToLibrary(title, author, pages, read);
+				// close and reset
+				if (typeof dialog.close === 'function') dialog.close();
+				else dialog.removeAttribute('open');
+				form.reset();
+			});
+		}
 	});
 } else {
 	// If running in a non-browser environment (e.g. Node.js), add small test

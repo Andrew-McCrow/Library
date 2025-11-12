@@ -7,7 +7,40 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main id="library" class="container" aria-live="polite"></main>
+    <main id="library" class="container" aria-live="polite">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;">
+            <h1>My Library</h1>
+            <div>
+                <button id="new-book-btn" class="btn">New Book</button>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="new-book-dialog" aria-labelledby="dialog-title">
+        <form method="dialog" id="new-book-form">
+            <h2 id="dialog-title">Add a new book</h2>
+            <label>
+                Title
+                <input type="text" name="title" required />
+            </label>
+            <label>
+                Author
+                <input type="text" name="author" required />
+            </label>
+            <label>
+                Pages
+                <input type="number" name="pages" min="1" />
+            </label>
+            <label>
+                Read
+                <input type="checkbox" name="read" />
+            </label>
+            <div style="display:flex;gap:0.5rem;margin-top:.75rem;">
+                <button type="submit" class="btn">Add Book</button>
+                <button type="button" id="cancel-btn" class="btn secondary">Cancel</button>
+            </div>
+        </form>
+    </dialog>
 
     <script src="scripts.js" defer></script>
 </body>

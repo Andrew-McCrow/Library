@@ -27,3 +27,10 @@ h1{color:var(--accent);}
 .book-actions{margin-top:0.75rem;display:flex;gap:0.5rem}
 .btn{padding:0.35rem 0.6rem;border-radius:6px;border:none;cursor:pointer;background:var(--accent);color:#fff;font-size:0.85rem}
 .btn.secondary{background:#6c757d}
+
+/* Dialog & form styles */
+dialog#new-book-dialog{padding:1rem;border-radius:8px;border:1px solid #ddd}
+form#new-book-form{display:flex;flex-direction:column;gap:0.5rem;min-width:320px}
+form#new-book-form label{display:flex;flex-direction:column;font-size:0.9rem}
+form#new-book-form input[type="text"],
+form#new-book-form input[type="number"]{padding:0.5rem;border-radius:6px;border:1px solid #ddd}
