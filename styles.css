@@ -1,0 +1,29 @@
+/* Basic starter styles for library.html */
+:root{
+  --bg:#f7f7f7;
+  --text:#222;
+  --accent:#0275d8;
+}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.4;
+  padding:2rem;
+}
+h1{color:var(--accent);}
+
+/* small utility */
+.container{max-width:900px;margin:0 auto;padding:1rem;background:#fff;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.06);}
+
+/* Library book grid and card styles */
+.book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.book-card{background:#fff;border:1px solid #e6e6e6;padding:1rem;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+.book-card h3{margin:0 0 0.25rem 0;font-size:1.05rem}
+.book-card p{margin:0.25rem 0;color:#444;font-size:0.95rem}
+.book-meta{font-size:0.85rem;color:#666;margin-top:0.5rem}
+.book-actions{margin-top:0.75rem;display:flex;gap:0.5rem}
+.btn{padding:0.35rem 0.6rem;border-radius:6px;border:none;cursor:pointer;background:var(--accent);color:#fff;font-size:0.85rem}
+.btn.secondary{background:#6c757d}
